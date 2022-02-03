@@ -27,7 +27,6 @@ public class MarkdownParse {
             if (closeParen == -1) {
                 break;
             }
-            //if the current values yield a link, add it
             if (openParen - nextCloseBracket == 1) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
