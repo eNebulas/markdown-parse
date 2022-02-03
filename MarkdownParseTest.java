@@ -9,7 +9,7 @@ import java.util.List;
 public class MarkdownParseTest {
     @Test
     public void addition() {
-        assertEquals(2, 1 + 1);
+        assertEquals(2, 1 + 2);
     }
 
     @Test
@@ -38,8 +38,8 @@ public class MarkdownParseTest {
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file8.md")));
         assertEquals(List.of("a link on the first line"), links);
 
-        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file9.md")));
-        assertEquals(List.of("www.name.com"), links);
+        // links = MarkdownParse.getLinks(Files.readString(Path.of("test-file9.md")));
+        // assertEquals(List.of("www.name.com"), links);
     }
 }
 
