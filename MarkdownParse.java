@@ -28,12 +28,11 @@ public class MarkdownParse {
                 break;
             }
 
-            /* Fix for test-file10.md
-            int closeParen2 = markdown.indexOf(")", closeParen);
+            // Fix for test-file10.md
+            int closeParen2 = markdown.indexOf(")", closeParen + 1);
             if (closeParen2 - closeParen == 1) {
                 closeParen = closeParen2;
             }
-            */
 
             if (openParen - nextCloseBracket == 1) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
