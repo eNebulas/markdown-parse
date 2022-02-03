@@ -15,25 +15,26 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks() throws IOException {
         ArrayList<String> links = MarkdownParse.getLinks(Files.readString(Path.of("test-file1.md")));
+        ArrayList<String> empty = new ArrayList<>();
         assertEquals(List.of("https://something.com", "some-page.html"), links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file2.md")));
         assertEquals(List.of("https://something.com", "some-page.html"), links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file3.md")));
-        assertEquals(List.of(""), links);
+        assertEquals(empty, links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file4.md")));
-        assertEquals(List.of(""), links);
+        assertEquals(empty, links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file5.md")));
-        assertEquals(List.of(""), links);
+        assertEquals(empty, links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file6.md")));
         assertEquals(List.of("page.com"), links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file7.md")));
-        assertEquals(List.of(""), links);
+        assertEquals(empty, links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file8.md")));
         assertEquals(List.of("a link on the first line"), links);
