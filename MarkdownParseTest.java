@@ -39,7 +39,7 @@ public class MarkdownParseTest {
         assertEquals(List.of("a link on the first line"), links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file9.md")));
-        assertEquals(List.of("www.name.com"), links);
+        assertEquals(List.of("www.name1.com"), links);
 
         links = MarkdownParse.getLinks(Files.readString(Path.of("test-file10.md")));
         assertEquals(List.of("(test.com)"), links);
