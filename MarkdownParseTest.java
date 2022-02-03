@@ -16,6 +16,30 @@ public class MarkdownParseTest {
     public void testGetLinks() throws IOException {
         ArrayList<String> links = MarkdownParse.getLinks(Files.readString(Path.of("test-file1.md")));
         assertEquals(List.of("https://something.com", "some-page.html"), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file2.md")));
+        assertEquals(List.of("https://something.com", "some-page.html"), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file3.md")));
+        assertEquals(List.of(""), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file4.md")));
+        assertEquals(List.of(""), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file5.md")));
+        assertEquals(List.of(""), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file6.md")));
+        assertEquals(List.of("page.com"), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file7.md")));
+        assertEquals(List.of(""), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file8.md")));
+        assertEquals(List.of("a link on the first line"), links);
+
+        links = MarkdownParse.getLinks(Files.readString(Path.of("test-file9.md")));
+        assertEquals(List.of("www.name.com"), links);
     }
 }
 
